@@ -2,12 +2,12 @@ import '@shopify/ui-extensions/preact';
 import {render} from "preact";
 import {useTranslate} from "@shopify/ui-extensions/checkout/preact"
 
-// 1. Export the extension
 export default function() {
   render(<Extension />, document.body)
 }
 
 function Extension() {
+  // [START custom-header.buyer-journey]
   const {buyerJourney: {steps, activeStep}, shop: {storefrontUrl}} = shopify;
   const translate = useTranslate();
 
@@ -25,8 +25,9 @@ function Extension() {
   );
 
   const columns = `${assembledSteps.map((_) => '1fr').join(' ')}`
+  // [END custom-header.buyer-journey]
 
-  // 3. Render a UI
+  // [START custom-header.render]
   return (
     <s-grid
       accessibilityRole="ordered-list"
@@ -53,14 +54,5 @@ function Extension() {
       ))}
     </s-grid>
   );
-
-  async function handleClick() {
-    // 4. Call the API to modify checkout
-    const result = await shopify.applyAttributeChange({
-      key: "requestedFreeGift",
-      type: "updateAttribute",
-      value: "yes",
-    });
-    console.log("applyAttributeChange result", result);
-  }
+  // [END custom-header.render]
 }
