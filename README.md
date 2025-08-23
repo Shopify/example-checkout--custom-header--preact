@@ -1,4 +1,4 @@
-# Shopiay app example: custom header checkout extension
+# Shopify app example: custom header checkout extension
 
 This repo contains an example app that uses [checkout UI extensions](https://shopify.dev/docs/api/checkout-ui-extensions) to build a custom header.
 
