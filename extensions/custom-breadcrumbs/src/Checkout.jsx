@@ -1,6 +1,5 @@
 import '@shopify/ui-extensions/preact';
 import {render} from "preact";
-import {useTranslate} from "@shopify/ui-extensions/checkout/preact"
 
 export default function() {
   render(<Extension />, document.body)
@@ -8,12 +7,15 @@ export default function() {
 
 function Extension() {
   // [START custom-header.buyer-journey]
-  const {buyerJourney: {steps, activeStep}, shop: {storefrontUrl}} = shopify;
-  const translate = useTranslate();
+  const {
+    i18n,
+    buyerJourney: {steps, activeStep},
+    shop: {storefrontUrl}
+  } = shopify;
 
   const assembledSteps = [
     {
-      label: translate('cart'),
+      label: i18n.translate('cart'),
       handle: 'cart',
       to: new URL('/cart', storefrontUrl).href,
     },
