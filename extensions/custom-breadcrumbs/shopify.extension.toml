@@ -8,6 +8,7 @@ api_version = "2025-10"
 [[extensions]]
 name = "custom-breadcrumbs"
 handle = "custom-breadcrumbs"
+uid = "ac1cf083-1ce5-1316-e59c-41e892fd7106418f8ac4"
 type = "ui_extension"
 
 

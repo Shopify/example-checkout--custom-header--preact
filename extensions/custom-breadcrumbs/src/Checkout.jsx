@@ -26,14 +26,14 @@ function Extension() {
     ({handle}) => handle === activeStep?.current?.handle,
   );
 
-  const columns = `${assembledSteps.map((_) => '1fr').join(' ')}`
+  const columns = `repeat(${assembledSteps.length}, 1fr)`
   // [END custom-header.buyer-journey]
 
   // [START custom-header.render]
   return (
     <s-grid
       accessibilityRole="ordered-list"
-      border="base base dashed"
+      border="base base solid"
       borderRadius="base"
       gridTemplateColumns={columns}
     >
